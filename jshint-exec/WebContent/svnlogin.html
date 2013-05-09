@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>Jshint扫描</title>
+</head>
+<script type="text/javascript">
+	// 验证输入不为空
+	function checkForm(form) {
+		
+		if (form.url.value == "") {
+			alert("SVN地址不能为空!");
+			form.url.focus();
+			return false;
+		}
+		if(form.url.value.contains(".js")){
+			alert("url应该是一个目录!");
+			form.url.focus();
+			return false;
+		}
+		if (form.username.value == "") {
+			alert("用户名不能为空!");
+			form.username.focus();
+			return false;
+		}
+		if (form.password.value == "") {
+			alert("密码不能为空!");
+			form.password.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+<body>
+	<h3>输入需要扫描js文件的SVN路径：<h3> <h5>如:http://svn.app.taobao.net/repos/malldetail/trunk/malldetail/assets/4.0b/tabbar</h5>
+	<br>
+	<form action="login.jsp" method="post" onsubmit="return checkForm(this);">
+
+		SVN地址：<input type="text" name="url" title="路径下文件夹层级最好少一点，不然扫描工程会很慢~" style="width: 515px;"><br>
+		<br> 用户名：<input type="text" name="username"><br> <br>
+		密码：<input type="password" name="password"><br> <br>
+		<input type="submit" value="登录" name="submit1"> <input
+			type="reset" value="重置" name="reset1">
+	</form>
+</body>
+</html>
